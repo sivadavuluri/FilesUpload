@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Upload Profile</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+        <tr>
+            <td colspan="2"><input type="submit" value="Upload Profile"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="reset" value="Reset"></td>
+        </tr>
+    </table>    
+</form>
+{% if obj %}
+    <h2>Profile Uploaded Successfully! <br> Your Profile ID is: {{ obj.id }}</h2>
+    <p>First Name: {{ obj.fname }}</p>
+    <p>Last Name: {{ obj.lname }}</p>
+    <p>Technology: {{ obj.tech }}</p>
+    <p>Email: {{ obj.email }}</p>
+    <!-- <p>Photo: <img src="{{ obj.photo.url }}" alt="Profile Photo" width="100"></p>
+    <p>Document: <a href="{{ obj.doc.url }}">Download Document</a></p> -->
+{% endif %}
+{% endblock %}
