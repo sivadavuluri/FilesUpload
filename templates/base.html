@@ -96,5 +96,40 @@
     </div>
     <p>&nbsp;</p>
   </div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    /* 1️⃣ Disable right-click */
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+    });
+
+    /* 2️⃣ Disable copy, cut, paste */
+    document.addEventListener('copy', e => e.preventDefault());
+    document.addEventListener('cut', e => e.preventDefault());
+    document.addEventListener('paste', e => e.preventDefault());
+
+    /* 3️⃣ Disable drag (image dragging) */
+    document.addEventListener('dragstart', function (e) {
+        e.preventDefault();
+    });
+
+    /* 4️⃣ Block screenshot & devtools shortcuts */
+    document.addEventListener('keydown', function (e) {
+        if (
+            e.key === 'PrintScreen' ||
+            (e.ctrlKey && e.key.toLowerCase() === 'p') ||
+            (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') ||
+            (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'c') ||
+            (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'j')
+        ) {
+            e.preventDefault();
+            alert("⚠️ Screenshots & copying are disabled");
+        }
+    });
+
+});
+</script>
+
 </body>
 </html>

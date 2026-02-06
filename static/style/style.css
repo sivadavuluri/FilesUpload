@@ -319,3 +319,13 @@ table tr td
 { background: #DDD;
   color: #47433F;
   border-top: 1px solid #FFF;}
+
+  body {
+    user-select: none;
+}
+
+img {
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
